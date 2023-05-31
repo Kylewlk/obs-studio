@@ -34,8 +34,13 @@ if(OS_WINDOWS AND MSVC)
   endif()
 
   # Check for Win SDK version 10.0.20348 or above
-  obs_status(STATUS "Windows API version is ${CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION}")
-  string(REPLACE "." ";" WINAPI_VER "${CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION}")
+  if (CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION)
+    obs_status(STATUS "Windows API version is ${CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION}")
+    string(REPLACE "." ";" WINAPI_VER "${CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION}")
+  else ()
+    obs_status(STATUS "Windows API version is ${CMAKE_SYSTEM_VERSION}")
+    string(REPLACE "." ";" WINAPI_VER "${CMAKE_SYSTEM_VERSION}")
+  endif ()
 
   list(GET WINAPI_VER 0 WINAPI_VER_MAJOR)
   list(GET WINAPI_VER 1 WINAPI_VER_MINOR)

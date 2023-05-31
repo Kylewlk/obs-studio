@@ -424,7 +424,7 @@ function(install_headers target)
     DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/"
     DESTINATION ${OBS_INCLUDE_DESTINATION}
     COMPONENT obs_libraries
-    EXCLUDE_FROM_ALL FILES_MATCHING
+    FILES_MATCHING
     PATTERN "*.h"
     PATTERN "*.hpp"
     PATTERN "obs-hevc.h" EXCLUDE
@@ -442,15 +442,13 @@ function(install_headers target)
     install(
       FILES "${CMAKE_CURRENT_SOURCE_DIR}/obs-hevc.h"
       DESTINATION "${OBS_INCLUDE_DESTINATION}"
-      COMPONENT obs_libraries
-      EXCLUDE_FROM_ALL)
+      COMPONENT obs_libraries)
   endif()
 
   if(NOT EXISTS "${OBS_INCLUDE_DESTINATION}/obsconfig.h")
     install(
       FILES "${CMAKE_BINARY_DIR}/config/obsconfig.h"
       DESTINATION "${OBS_INCLUDE_DESTINATION}"
-      COMPONENT obs_libraries
-      EXCLUDE_FROM_ALL)
+      COMPONENT obs_libraries)
   endif()
 endfunction()

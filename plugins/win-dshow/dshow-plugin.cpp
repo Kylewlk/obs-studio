@@ -47,7 +47,7 @@ bool obs_module_load(void)
 #ifdef VIRTUALCAM_AVAILABLE
 	obs_register_output(&virtualcam_info);
 
-	bool installed = vcam_installed(false);
+	bool installed = vcam_installed(true);
 #else
 	bool installed = false;
 #endif
