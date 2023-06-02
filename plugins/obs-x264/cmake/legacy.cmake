@@ -18,7 +18,7 @@ set_target_properties(obs-x264 PROPERTIES FOLDER "plugins" PREFIX "")
 
 if(OS_WINDOWS)
   set(MODULE_DESCRIPTION "OBS x264 encoder")
-  configure_file(${CMAKE_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in obs-x264.rc)
+  configure_file(${OBS_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in obs-x264.rc)
 
   target_sources(obs-x264 PRIVATE obs-x264.rc)
 

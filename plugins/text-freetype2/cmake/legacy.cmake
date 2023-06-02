@@ -21,7 +21,7 @@ set_target_properties(text-freetype2 PROPERTIES FOLDER "plugins" PREFIX "")
 
 if(OS_WINDOWS)
   set(MODULE_DESCRIPTION "OBS FreeType text module")
-  configure_file(${CMAKE_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in text-freetype2.rc)
+  configure_file(${OBS_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in text-freetype2.rc)
 
   target_sources(text-freetype2 PRIVATE find-font.c find-font-windows.c text-freetype2.rc)
   target_link_options(text-freetype2 PRIVATE "LINKER:/IGNORE:4098" "LINKER:/IGNORE:4099")

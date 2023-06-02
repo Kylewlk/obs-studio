@@ -1,7 +1,7 @@
 include_guard(DIRECTORY)
 
 if(NOT TARGET OBS::blake2)
-  add_subdirectory("${CMAKE_SOURCE_DIR}/deps/blake2" "${CMAKE_BINARY_DIR}/deps/blake2")
+  add_subdirectory("${OBS_SOURCE_DIR}/deps/blake2" "${CMAKE_BINARY_DIR}/deps/blake2")
 endif()
 
 target_sources(obs-studio PRIVATE update/crypto-helpers.hpp update/crypto-helpers-mac.mm update/shared-update.cpp

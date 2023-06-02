@@ -20,14 +20,14 @@ endif()
 find_path(
   Libfdk_INCLUDE_DIR
   NAMES fdk-aac/aacenc_lib.h
-  HINTS ENV LIBFDK_PATH ${LIBFDK_PATH} ${CMAKE_SOURCE_DIR}/${LIBFDK_PATH} ${_LIBFDK_INCLUDE_DIRS}
+  HINTS ENV LIBFDK_PATH ${LIBFDK_PATH} ${OBS_SOURCE_DIR}/${LIBFDK_PATH} ${_LIBFDK_INCLUDE_DIRS}
   PATHS /usr/include /usr/local/include /opt/local/include /sw/include
   PATH_SUFFIXES include)
 
 find_library(
   Libfdk_LIB
   NAMES ${_LIBFDK_LIBRARIES} fdk-aac libfdk-aac
-  HINTS ENV LIBFDK_PATH ${LIBFDK_PATH} ${CMAKE_SOURCE_DIR}/${LIBFDK_PATH} ${_LIBFDK_LIBRARY_DIRS}
+  HINTS ENV LIBFDK_PATH ${LIBFDK_PATH} ${OBS_SOURCE_DIR}/${LIBFDK_PATH} ${_LIBFDK_LIBRARY_DIRS}
   PATHS /usr/lib /usr/local/lib /opt/local/lib /sw/lib
   PATH_SUFFIXES
     lib${_lib_suffix}

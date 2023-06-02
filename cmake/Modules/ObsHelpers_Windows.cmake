@@ -341,7 +341,7 @@ endfunction()
 
 # Helper function to gather external libraries depended-on by libobs
 function(setup_libobs_target target)
-  set(_ADDITIONAL_FILES "${CMAKE_SOURCE_DIR}/additional_install_files")
+  set(_ADDITIONAL_FILES "${OBS_SOURCE_DIR}/additional_install_files")
 
   if(DEFINED ENV{OBS_AdditionalInstallFiles})
     set(_ADDITIONAL_FILES "$ENV{OBS_AdditionalInstallFiles}")

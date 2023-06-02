@@ -23,11 +23,11 @@ if(NOT DEFINED OBS_VERSION_OVERRIDE)
     else()
       message(FATAL_ERROR "Invalid beta version supplied - must be <MAJOR>.<MINOR>.<PATCH>-beta<RELEASE>.")
     endif()
-  elseif(EXISTS "${CMAKE_SOURCE_DIR}/.git")
+  elseif(EXISTS "${OBS_SOURCE_DIR}/.git")
     execute_process(
       COMMAND git describe --always --tags --dirty=-modified
       OUTPUT_VARIABLE _obs_version
-      WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
+      WORKING_DIRECTORY "${OBS_SOURCE_DIR}"
       RESULT_VARIABLE _obs_version_result
       OUTPUT_STRIP_TRAILING_WHITESPACE)
 

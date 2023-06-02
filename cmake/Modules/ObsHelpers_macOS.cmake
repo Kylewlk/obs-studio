@@ -3,7 +3,7 @@ function(setup_binary_target target)
   set_target_properties(
     ${target}
     PROPERTIES XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "com.obsproject.${target}"
-               XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${CMAKE_SOURCE_DIR}/cmake/bundle/macOS/entitlements.plist")
+               XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${OBS_SOURCE_DIR}/cmake/bundle/macOS/entitlements.plist")
 
   set(MACOSX_PLUGIN_BUNDLE_NAME
       "${target}"
@@ -37,7 +37,7 @@ function(setup_framework_target target)
                FRAMEWORK_VERSION A
                OUTPUT_NAME "${target}"
                MACOSX_FRAMEWORK_IDENTIFIER "com.obsproject.${target}"
-               MACOSX_FRAMEWORK_INFO_PLIST "${CMAKE_SOURCE_DIR}/cmake/bundle/macOS/Plugin-Info.plist.in"
+               MACOSX_FRAMEWORK_INFO_PLIST "${OBS_SOURCE_DIR}/cmake/bundle/macOS/Plugin-Info.plist.in"
                XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "com.obsproject.${target}")
 
   install(
@@ -80,9 +80,9 @@ function(setup_plugin_target target)
     PROPERTIES BUNDLE ON
                BUNDLE_EXTENSION "plugin"
                OUTPUT_NAME "${target}"
-               MACOSX_BUNDLE_INFO_PLIST "${CMAKE_SOURCE_DIR}/cmake/bundle/macOS/Plugin-Info.plist.in"
+               MACOSX_BUNDLE_INFO_PLIST "${OBS_SOURCE_DIR}/cmake/bundle/macOS/Plugin-Info.plist.in"
                XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "com.obsproject.${target}"
-               XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${CMAKE_SOURCE_DIR}/cmake/bundle/macOS/entitlements.plist")
+               XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${OBS_SOURCE_DIR}/cmake/bundle/macOS/entitlements.plist")
 
   set_property(GLOBAL APPEND PROPERTY OBS_MODULE_LIST "${target}")
   obs_status(ENABLED "${target}")
@@ -95,7 +95,7 @@ function(setup_script_plugin_target target)
   set_target_properties(
     ${target}
     PROPERTIES XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "com.obsproject.${target}"
-               XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${CMAKE_SOURCE_DIR}/cmake/bundle/macOS/entitlements.plist")
+               XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${OBS_SOURCE_DIR}/cmake/bundle/macOS/entitlements.plist")
 
   set_property(GLOBAL APPEND PROPERTY OBS_SCRIPTING_MODULE_LIST "${target}")
   obs_status(ENABLED "${target}")
@@ -132,7 +132,7 @@ function(setup_obs_app target)
   set_target_properties(
     ${target}
     PROPERTIES BUILD_WITH_INSTALL_RPATH OFF
-               XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${CMAKE_SOURCE_DIR}/cmake/bundle/macOS/entitlements.plist"
+               XCODE_ATTRIBUTE_CODE_SIGN_ENTITLEMENTS "${OBS_SOURCE_DIR}/cmake/bundle/macOS/entitlements.plist"
                XCODE_SCHEME_ENVIRONMENT "PYTHONDONTWRITEBYTECODE=1")
 
   install(TARGETS ${target} BUNDLE DESTINATION "." COMPONENT obs_app)
@@ -316,9 +316,9 @@ function(setup_obs_bundle target)
     set(_DEPENDENCY_PREFIX \"${CMAKE_PREFIX_PATH}\")
     set(_BUILD_FOR_DISTRIBUTION \"${BUILD_FOR_DISTRIBUTION}\")
     set(_BUNDLENAME \"$<TARGET_FILE_BASE_NAME:${target}>.app\")
-    set(_BUNDLER_COMMAND \"${CMAKE_SOURCE_DIR}/cmake/bundle/macOS/dylibbundler\")
+    set(_BUNDLER_COMMAND \"${OBS_SOURCE_DIR}/cmake/bundle/macOS/dylibbundler\")
     set(_CODESIGN_IDENTITY \"${OBS_BUNDLE_CODESIGN_IDENTITY}\")
-    set(_CODESIGN_ENTITLEMENTS \"${CMAKE_SOURCE_DIR}/cmake/bundle/macOS\")"
+    set(_CODESIGN_ENTITLEMENTS \"${OBS_SOURCE_DIR}/cmake/bundle/macOS\")"
     COMPONENT obs_resources)
 
   if(SPARKLE_APPCAST_URL AND SPARKLE_PUBLIC_KEY)
@@ -356,7 +356,7 @@ function(setup_obs_bundle target)
       "$<TARGET_BUNDLE_CONTENT_DIR:${target}>/Resources/themes/Rachni.qss"
       "$<TARGET_BUNDLE_CONTENT_DIR:${target}>/Resources/themes/Yami.qss")
 
-  install(SCRIPT "${CMAKE_SOURCE_DIR}/cmake/bundle/macOS/bundleutils.cmake" COMPONENT obs_resources)
+  install(SCRIPT "${OBS_SOURCE_DIR}/cmake/bundle/macOS/bundleutils.cmake" COMPONENT obs_resources)
 endfunction()
 
 # Helper function to export target to build and install tree Allows usage of `find_package(libobs)` by other build trees

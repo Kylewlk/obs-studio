@@ -20,21 +20,21 @@ target_sources(
           DecklinkOutputUI.h
           decklink-ui-main.cpp
           decklink-ui-main.h
-          "${CMAKE_SOURCE_DIR}/UI/double-slider.cpp"
-          "${CMAKE_SOURCE_DIR}/UI/double-slider.hpp"
-          "${CMAKE_SOURCE_DIR}/UI/plain-text-edit.hpp"
-          "${CMAKE_SOURCE_DIR}/UI/plain-text-edit.cpp"
-          "${CMAKE_SOURCE_DIR}/UI/properties-view.hpp"
-          "${CMAKE_SOURCE_DIR}/UI/properties-view.cpp"
-          "${CMAKE_SOURCE_DIR}/UI/properties-view.moc.hpp"
-          "${CMAKE_SOURCE_DIR}/UI/qt-wrappers.hpp"
-          "${CMAKE_SOURCE_DIR}/UI/qt-wrappers.cpp"
-          "${CMAKE_SOURCE_DIR}/UI/spinbox-ignorewheel.cpp"
-          "${CMAKE_SOURCE_DIR}/UI/spinbox-ignorewheel.hpp"
-          "${CMAKE_SOURCE_DIR}/UI/slider-ignorewheel.cpp"
-          "${CMAKE_SOURCE_DIR}/UI/slider-ignorewheel.hpp"
-          "${CMAKE_SOURCE_DIR}/UI/vertical-scroll-area.hpp"
-          "${CMAKE_SOURCE_DIR}/UI/vertical-scroll-area.cpp")
+          "${OBS_SOURCE_DIR}/UI/double-slider.cpp"
+          "${OBS_SOURCE_DIR}/UI/double-slider.hpp"
+          "${OBS_SOURCE_DIR}/UI/plain-text-edit.hpp"
+          "${OBS_SOURCE_DIR}/UI/plain-text-edit.cpp"
+          "${OBS_SOURCE_DIR}/UI/properties-view.hpp"
+          "${OBS_SOURCE_DIR}/UI/properties-view.cpp"
+          "${OBS_SOURCE_DIR}/UI/properties-view.moc.hpp"
+          "${OBS_SOURCE_DIR}/UI/qt-wrappers.hpp"
+          "${OBS_SOURCE_DIR}/UI/qt-wrappers.cpp"
+          "${OBS_SOURCE_DIR}/UI/spinbox-ignorewheel.cpp"
+          "${OBS_SOURCE_DIR}/UI/spinbox-ignorewheel.hpp"
+          "${OBS_SOURCE_DIR}/UI/slider-ignorewheel.cpp"
+          "${OBS_SOURCE_DIR}/UI/slider-ignorewheel.hpp"
+          "${OBS_SOURCE_DIR}/UI/vertical-scroll-area.hpp"
+          "${OBS_SOURCE_DIR}/UI/vertical-scroll-area.cpp")
 
 target_link_libraries(decklink-output-ui PRIVATE OBS::libobs OBS::frontend-api Qt::Widgets)
 

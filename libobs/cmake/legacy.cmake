@@ -285,7 +285,7 @@ if(OS_WINDOWS)
   set(MODULE_DESCRIPTION "OBS Library")
   set(UI_VERSION "${OBS_VERSION_CANONICAL}")
 
-  configure_file(${CMAKE_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in libobs.rc)
+  configure_file(${OBS_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in libobs.rc)
 
   target_sources(
     libobs

@@ -20,14 +20,14 @@ endif()
 find_path(
   LIBSRT_INCLUDE_DIR
   NAMES srt.h srt/srt.h
-  HINTS ENV LIBSRT_PATH ${LIBSRT_PATH} ${CMAKE_SOURCE_DIR}/${LIBSRT_PATH} ${_LIBSRT_INCLUDE_DIRS} ${DepsPath}
+  HINTS ENV LIBSRT_PATH ${LIBSRT_PATH} ${OBS_SOURCE_DIR}/${LIBSRT_PATH} ${_LIBSRT_INCLUDE_DIRS} ${DepsPath}
   PATHS /usr/include /usr/local/include /opt/local/include /sw/include
   PATH_SUFFIXES include)
 
 find_library(
   LIBSRT_LIB
   NAMES ${_LIBSRT_LIBRARIES} srt libsrt
-  HINTS ENV LIBSRT_PATH ${LIBSRT_PATH} ${CMAKE_SOURCE_DIR}/${LIBSRT_PATH} ${_LIBSRT_LIBRARY_DIRS} ${DepsPath}
+  HINTS ENV LIBSRT_PATH ${LIBSRT_PATH} ${OBS_SOURCE_DIR}/${LIBSRT_PATH} ${_LIBSRT_LIBRARY_DIRS} ${DepsPath}
   PATHS /usr/lib /usr/local/lib /opt/local/lib /sw/lib
   PATH_SUFFIXES
     lib${_lib_suffix}

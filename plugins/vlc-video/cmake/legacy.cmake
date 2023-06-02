@@ -24,7 +24,7 @@ if(OS_WINDOWS)
   endif()
 
   set(MODULE_DESCRIPTION "OBS VLC Plugin")
-  configure_file(${CMAKE_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in vlc-video.rc)
+  configure_file(${OBS_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in vlc-video.rc)
 
   target_sources(vlc-video PRIVATE vlc-video.rc)
 

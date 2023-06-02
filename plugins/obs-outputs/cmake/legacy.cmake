@@ -57,7 +57,7 @@ set_target_properties(obs-outputs PROPERTIES FOLDER "plugins" PREFIX "")
 
 if(OS_WINDOWS)
   set(MODULE_DESCRIPTION "OBS output module")
-  configure_file(${CMAKE_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in obs-outputs.rc)
+  configure_file(${OBS_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in obs-outputs.rc)
 
   target_sources(obs-outputs PRIVATE obs-outputs.rc)
 

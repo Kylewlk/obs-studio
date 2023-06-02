@@ -1,9 +1,9 @@
 if(NOT TARGET OBS::blake2)
-  add_subdirectory("${CMAKE_SOURCE_DIR}/deps/blake2" "${CMAKE_BINARY_DIR}/deps/blake2")
+  add_subdirectory("${OBS_SOURCE_DIR}/deps/blake2" "${CMAKE_BINARY_DIR}/deps/blake2")
 endif()
 
 if(NOT TARGET OBS::w32-pthreads)
-  add_subdirectory("${CMAKE_SOURCE_DIR}/deps/w32-pthreads" "${CMAKE_BINARY_DIR}/deps/w32-pthreads")
+  add_subdirectory("${OBS_SOURCE_DIR}/deps/w32-pthreads" "${CMAKE_BINARY_DIR}/deps/w32-pthreads")
 endif()
 
 find_package(MbedTLS)
@@ -46,7 +46,7 @@ set_property(
   APPEND
   PROPERTY AUTORCC_OPTIONS --format-version 1)
 
-set_property(DIRECTORY ${CMAKE_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT obs-studio)
+set_property(DIRECTORY ${OBS_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT obs-studio)
 set_target_properties(
   obs-studio
   PROPERTIES

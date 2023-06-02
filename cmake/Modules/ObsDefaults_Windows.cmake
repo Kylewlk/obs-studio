@@ -134,7 +134,7 @@ macro(setup_obs_project)
   elseif(DEFINED ENV{obsAdditionalInstallFiles})
     file(TO_CMAKE_PATH "$ENV{obsAdditionalInstallFiles}" _ADDITIONAL_FILES)
   else()
-    set(_ADDITIONAL_FILES "${CMAKE_SOURCE_DIR}/additional_install_files")
+    set(_ADDITIONAL_FILES "${OBS_SOURCE_DIR}/additional_install_files")
   endif()
 
   set(ENV{OBS_AdditionalInstallFiles} "${_ADDITIONAL_FILES}")

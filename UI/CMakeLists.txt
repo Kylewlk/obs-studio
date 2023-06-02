@@ -17,11 +17,11 @@ find_package(FFmpeg REQUIRED COMPONENTS avcodec avutil avformat)
 find_package(CURL REQUIRED)
 
 if(NOT TARGET OBS::libff-util)
-  add_subdirectory("${CMAKE_SOURCE_DIR}/deps/libff" "${CMAKE_BINARY_DIR}/deps/libff")
+  add_subdirectory("${OBS_SOURCE_DIR}/deps/libff" "${CMAKE_BINARY_DIR}/deps/libff")
 endif()
 
 if(NOT TARGET OBS::json11)
-  add_subdirectory("${CMAKE_SOURCE_DIR}/deps/json11" "${CMAKE_BINARY_DIR}/deps/json11")
+  add_subdirectory("${OBS_SOURCE_DIR}/deps/json11" "${CMAKE_BINARY_DIR}/deps/json11")
 endif()
 
 add_executable(obs-studio)

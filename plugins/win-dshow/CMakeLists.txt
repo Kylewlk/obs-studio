@@ -78,7 +78,7 @@ target_compile_options(libdshowcapture-external INTERFACE /wd4018)
 
 set(MODULE_DESCRIPTION "OBS DirectShow module")
 
-configure_file(${CMAKE_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in win-dshow.rc)
+configure_file(${OBS_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in win-dshow.rc)
 
 target_sources(win-dshow PRIVATE win-dshow.rc)
 

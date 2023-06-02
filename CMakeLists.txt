@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.16...3.25)
 
+set(OBS_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+
 if(OBS_CMAKE_VERSION VERSION_GREATER_EQUAL 3.0.0)
   include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/common/bootstrap.cmake")
 
@@ -36,7 +38,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/Modules")
 include(VersionConfig)
 
 # Prohibit in-source builds
-if("${CMAKE_BINARY_DIR}" STREQUAL "${CMAKE_SOURCE_DIR}")
+if("${CMAKE_BINARY_DIR}" STREQUAL "${OBS_SOURCE_DIR}")
   message(FATAL_ERROR "OBS: You cannot build in a source directory (or any directory with CMakeLists.txt file)."
                       "Please make a build subdirectory. Feel free to remove CMakeCache.txt and CMakeFiles.")
 endif()

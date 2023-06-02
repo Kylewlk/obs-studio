@@ -44,14 +44,14 @@ function(find_ffmpeg_library component header)
   find_path(
     FFMPEG_${component}_INCLUDE_DIR
     NAMES "lib${component}/${header}" "lib${component}/version.h"
-    HINTS ENV FFMPEG_PATH ${FFMPEG_PATH} ${CMAKE_SOURCE_DIR}/${FFMPEG_PATH} ${PC_FFMPEG_${component}_INCLUDE_DIRS}
+    HINTS ENV FFMPEG_PATH ${FFMPEG_PATH} ${OBS_SOURCE_DIR}/${FFMPEG_PATH} ${PC_FFMPEG_${component}_INCLUDE_DIRS}
     PATHS /usr/include /usr/local/include /opt/local/include /sw/include
     PATH_SUFFIXES ffmpeg libav include)
 
   find_library(
     FFMPEG_${component}_LIBRARY
     NAMES "${component}" "lib${component}"
-    HINTS ENV FFMPEG_PATH ${FFMPEG_PATH} ${CMAKE_SOURCE_DIR}/${FFMPEG_PATH} ${PC_FFMPEG_${component}_LIBRARY_DIRS}
+    HINTS ENV FFMPEG_PATH ${FFMPEG_PATH} ${OBS_SOURCE_DIR}/${FFMPEG_PATH} ${PC_FFMPEG_${component}_LIBRARY_DIRS}
     PATHS /usr/lib /usr/local/lib /opt/local/lib /sw/lib
     PATH_SUFFIXES
       lib${_lib_suffix}

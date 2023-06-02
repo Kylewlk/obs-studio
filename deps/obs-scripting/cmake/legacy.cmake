@@ -69,7 +69,7 @@ target_include_directories(obs-scripting PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 if(OS_WINDOWS)
   set(MODULE_DESCRIPTION "OBS Studio scripting module")
-  configure_file(${CMAKE_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in obs-scripting.rc)
+  configure_file(${OBS_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in obs-scripting.rc)
 
   target_sources(obs-scripting PRIVATE obs-scripting.rc)
 

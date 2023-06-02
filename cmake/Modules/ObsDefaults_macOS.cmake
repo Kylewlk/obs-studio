@@ -84,7 +84,7 @@ macro(setup_obs_project)
   endif()
 
   set(OBS_CODESIGN_ENTITLEMENTS
-      "${CMAKE_SOURCE_DIR}/cmake/bundle/macOS/entitlements.plist"
+      "${OBS_SOURCE_DIR}/cmake/bundle/macOS/entitlements.plist"
       CACHE INTERNAL "Path to codesign entitlements plist")
   set(OBS_CODESIGN_LINKER
       ON
@@ -155,8 +155,8 @@ macro(setup_obs_project)
   set(CPACK_COMPONENT_OBS_SCRIPTING_PLUGINS_DISPLAY_NAME "OBS Scripting Plugins")
   set(CPACK_COMPONENT_OBS_RESOURCES_DISPLAY_NAME "OBS Resources")
 
-  set(CPACK_DMG_BACKGROUND_IMAGE "${CMAKE_SOURCE_DIR}/cmake/bundle/macOS/background.tiff")
-  set(CPACK_PACKAGE_ICON "${CMAKE_SOURCE_DIR}/cmake/bundle/macOS/AppIcon.icns")
+  set(CPACK_DMG_BACKGROUND_IMAGE "${OBS_SOURCE_DIR}/cmake/bundle/macOS/background.tiff")
+  set(CPACK_PACKAGE_ICON "${OBS_SOURCE_DIR}/cmake/bundle/macOS/AppIcon.icns")
   get_filename_component(CPACK_DMG_BACKGROUND_FILENAME ${CPACK_DMG_BACKGROUND_IMAGE} NAME)
   set(CPACK_DMG_FORMAT "UDZO")
   set(CPACK_DMG_FILESYSTEM "APFS")
@@ -173,7 +173,7 @@ macro(setup_obs_project)
   set(_DMG_APP_LINK_X "416")
   set(_DMG_APP_LINK_Y "180")
 
-  configure_file("${CMAKE_SOURCE_DIR}/cmake/bundle/macOS/package.applescript.in"
+  configure_file("${OBS_SOURCE_DIR}/cmake/bundle/macOS/package.applescript.in"
                  "${CMAKE_BINARY_DIR}/package.applescript" @ONLY)
 
   include(CPack)

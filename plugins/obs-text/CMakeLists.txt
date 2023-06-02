@@ -8,7 +8,7 @@ target_link_libraries(obs-text PRIVATE OBS::libobs)
 set_target_properties(obs-text PROPERTIES FOLDER "plugins")
 
 set(MODULE_DESCRIPTION "OBS GDI+ text module")
-configure_file(${CMAKE_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in obs-text.rc)
+configure_file(${OBS_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in obs-text.rc)
 
 target_sources(obs-text PRIVATE gdiplus/obs-text.cpp obs-text.rc)
 

@@ -2,7 +2,7 @@ if(POLICY CMP0087)
   cmake_policy(SET CMP0087 NEW)
 endif()
 
-set(OBS_STANDALONE_PLUGIN_DIR ${CMAKE_SOURCE_DIR}/release)
+set(OBS_STANDALONE_PLUGIN_DIR ${OBS_SOURCE_DIR}/release)
 
 include(GNUInstallDirs)
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")
@@ -136,8 +136,8 @@ macro(find_qt)
 endmacro()
 
 # Set relative path variables for file configurations
-file(RELATIVE_PATH RELATIVE_INSTALL_PATH ${CMAKE_SOURCE_DIR} ${CMAKE_INSTALL_PREFIX})
-file(RELATIVE_PATH RELATIVE_BUILD_PATH ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR})
+file(RELATIVE_PATH RELATIVE_INSTALL_PATH ${OBS_SOURCE_DIR} ${CMAKE_INSTALL_PREFIX})
+file(RELATIVE_PATH RELATIVE_BUILD_PATH ${OBS_SOURCE_DIR} ${CMAKE_BINARY_DIR})
 
 if(OS_POSIX)
   # Set default GCC/clang compile options:
@@ -321,7 +321,7 @@ if(OS_MACOS)
   # Set path to entitlements property list for codesigning. Entitlements should match the host binary, in this case
   # OBS.app.
   set(OBS_CODESIGN_ENTITLEMENTS
-      ${CMAKE_SOURCE_DIR}/cmake/bundle/macos/entitlements.plist
+      ${OBS_SOURCE_DIR}/cmake/bundle/macos/entitlements.plist
       CACHE INTERNAL "Path to codesign entitlements plist")
   # Enable linker codesigning by default. Building OBS or plugins on host systems older than macOS 10.15 is not
   # supported
@@ -490,7 +490,7 @@ else()
       set(CPACK_DEBIAN_PACKAGE_DEPENDS
           "obs-studio (>= 27.0.0), libqt5core5a (>= 5.9.0~beta), libqt5gui5 (>= 5.3.0), libqt5widgets5 (>= 5.7.0)")
 
-      set(CPACK_OUTPUT_FILE_PREFIX ${CMAKE_SOURCE_DIR}/release)
+      set(CPACK_OUTPUT_FILE_PREFIX ${OBS_SOURCE_DIR}/release)
 
       if(NOT LINUX_PORTABLE)
         set(CPACK_SET_DESTDIR ON)

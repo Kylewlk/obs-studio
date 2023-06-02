@@ -96,7 +96,7 @@ if(OS_WINDOWS)
   add_subdirectory(obs-qsv-test)
 
   set(MODULE_DESCRIPTION "OBS QSV encoder")
-  configure_file(${CMAKE_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in obs-qsv11.rc)
+  configure_file(${OBS_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in obs-qsv11.rc)
 
   target_sources(obs-qsv11 PRIVATE obs-qsv11.rc)
 

@@ -6,7 +6,7 @@ add_library(libobs-opengl SHARED)
 add_library(OBS::libobs-opengl ALIAS libobs-opengl)
 
 if(NOT TARGET OBS::glad)
-  add_subdirectory("${CMAKE_SOURCE_DIR}/deps/glad" "${CMAKE_BINARY_DIR}/deps/glad")
+  add_subdirectory("${OBS_SOURCE_DIR}/deps/glad" "${CMAKE_BINARY_DIR}/deps/glad")
 endif()
 
 target_sources(

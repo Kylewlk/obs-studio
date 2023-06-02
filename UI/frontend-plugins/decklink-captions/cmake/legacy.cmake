@@ -41,7 +41,7 @@ elseif(OS_POSIX)
   target_link_libraries(decklink-captions PRIVATE X11::X11)
 elseif(OS_WINDOWS)
   set(MODULE_DESCRIPTION "OBS DeckLink Captions module")
-  configure_file(${CMAKE_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in decklink-captions.rc)
+  configure_file(${OBS_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in decklink-captions.rc)
 
   target_sources(decklink-captions PRIVATE decklink-captions.rc)
 endif()

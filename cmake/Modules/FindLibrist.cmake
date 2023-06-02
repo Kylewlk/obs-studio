@@ -20,14 +20,14 @@ endif()
 find_path(
   LIBRIST_INCLUDE_DIR
   NAMES librist.h librist/librist.h
-  HINTS ENV LIBRIST_PATH ${LIBRIST_PATH} ${CMAKE_SOURCE_DIR}/${LIBRIST_PATH} ${_LIBRIST_INCLUDE_DIRS} ${DepsPath}
+  HINTS ENV LIBRIST_PATH ${LIBRIST_PATH} ${OBS_SOURCE_DIR}/${LIBRIST_PATH} ${_LIBRIST_INCLUDE_DIRS} ${DepsPath}
   PATHS /usr/include /usr/local/include /opt/local/include /sw/include
   PATH_SUFFIXES include)
 
 find_library(
   LIBRIST_LIB
   NAMES ${_LIBRIST_LIBRARIES} librist rist
-  HINTS ENV LIBRIST_PATH ${LIBRIST_PATH} ${CMAKE_SOURCE_DIR}/${LIBRIST_PATH} ${_LIBRIST_LIBRARY_DIRS} ${DepsPath}
+  HINTS ENV LIBRIST_PATH ${LIBRIST_PATH} ${OBS_SOURCE_DIR}/${LIBRIST_PATH} ${_LIBRIST_LIBRARY_DIRS} ${DepsPath}
   PATHS /usr/lib /usr/local/lib /opt/local/lib /sw/lib
   PATH_SUFFIXES
     lib${_lib_suffix}

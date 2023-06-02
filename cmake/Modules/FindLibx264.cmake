@@ -20,14 +20,14 @@ endif()
 find_path(
   X264_INCLUDE_DIR
   NAMES x264.h
-  HINTS ENV X264_PATH ${X264_PATH} ${CMAKE_SOURCE_DIR}/${X264_PATH} ${_X264_INCLUDE_DIRS}
+  HINTS ENV X264_PATH ${X264_PATH} ${OBS_SOURCE_DIR}/${X264_PATH} ${_X264_INCLUDE_DIRS}
   PATHS /usr/include /usr/local/include /opt/local/include /sw/include
   PATH_SUFFIXES include)
 
 find_library(
   X264_LIB
   NAMES ${_X264_LIBRARIES} x264 libx264
-  HINTS ENV X264_PATH ${X264_PATH} ${CMAKE_SOURCE_DIR}/${X264_PATH} ${_X264_LIBRARY_DIRS}
+  HINTS ENV X264_PATH ${X264_PATH} ${OBS_SOURCE_DIR}/${X264_PATH} ${_X264_LIBRARY_DIRS}
   PATHS /usr/lib /usr/local/lib /opt/local/lib /sw/lib
   PATH_SUFFIXES
     lib${_lib_suffix}

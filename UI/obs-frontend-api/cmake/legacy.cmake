@@ -25,7 +25,7 @@ set_target_properties(
 
 if(OS_WINDOWS)
   set(MODULE_DESCRIPTION "OBS Frontend API")
-  configure_file(${CMAKE_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in obs-frontend-api.rc)
+  configure_file(${OBS_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in obs-frontend-api.rc)
 
   target_sources(obs-frontend-api PRIVATE obs-frontend-api.rc)
 elseif(OS_MACOS)

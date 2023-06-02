@@ -25,7 +25,7 @@ if(OS_WINDOWS AND MSVC)
     file(
       GENERATE
       OUTPUT "${CMAKE_BINARY_DIR}/ALL_BUILD.vcxproj.user"
-      INPUT "${CMAKE_SOURCE_DIR}/cmake/bundle/windows/ALL_BUILD.vcxproj.user.in")
+      INPUT "${OBS_SOURCE_DIR}/cmake/bundle/windows/ALL_BUILD.vcxproj.user.in")
   endif()
 
   # CMake 3.24 introduces a bug mistakenly interpreting MSVC as supporting `-pthread`

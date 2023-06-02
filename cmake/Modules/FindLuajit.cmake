@@ -15,7 +15,7 @@ endif()
 find_path(
   LUAJIT_INCLUDE_DIR
   NAMES lua.h lualib.h
-  HINTS ENV LUAJIT_PATH ${LUAJIT_PATH} ${CMAKE_SOURCE_DIR}/${LUAJIT_PATH} ${_LUAJIT_INCLUDE_DIRS}
+  HINTS ENV LUAJIT_PATH ${LUAJIT_PATH} ${OBS_SOURCE_DIR}/${LUAJIT_PATH} ${_LUAJIT_INCLUDE_DIRS}
   PATHS /usr/include
         /usr/local/include
         /opt/local/include
@@ -41,7 +41,7 @@ find_path(
 find_library(
   LUAJIT_LIB
   NAMES ${_LUAJIT_LIBRARIES} luajit luajit-51 luajit-5.1 lua51
-  HINTS ENV LUAJIT_PATH ${LUAJIT_PATH} ${CMAKE_SOURCE_DIR}/${LUAJIT_PATH} ${_LUAJIT_LIBRARY_DIRS}
+  HINTS ENV LUAJIT_PATH ${LUAJIT_PATH} ${OBS_SOURCE_DIR}/${LUAJIT_PATH} ${_LUAJIT_LIBRARY_DIRS}
   PATHS /usr/lib
         /usr/local/lib
         /opt/local/lib

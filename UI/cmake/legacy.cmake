@@ -15,7 +15,7 @@ if(TARGET obs-browser
   add_library(obs-browser-panels INTERFACE)
   add_library(OBS::browser-panels ALIAS obs-browser-panels)
 
-  target_include_directories(obs-browser-panels INTERFACE ${CMAKE_SOURCE_DIR}/plugins/obs-browser/panel)
+  target_include_directories(obs-browser-panels INTERFACE ${OBS_SOURCE_DIR}/plugins/obs-browser/panel)
 endif()
 
 set(OAUTH_BASE_URL
@@ -149,10 +149,10 @@ target_sources(
           ui-validation.hpp
           multiview.cpp
           multiview.hpp
-          ${CMAKE_SOURCE_DIR}/deps/json11/json11.cpp
-          ${CMAKE_SOURCE_DIR}/deps/json11/json11.hpp
-          ${CMAKE_SOURCE_DIR}/deps/libff/libff/ff-util.c
-          ${CMAKE_SOURCE_DIR}/deps/libff/libff/ff-util.h
+          ${OBS_SOURCE_DIR}/deps/json11/json11.cpp
+          ${OBS_SOURCE_DIR}/deps/json11/json11.hpp
+          ${OBS_SOURCE_DIR}/deps/libff/libff/ff-util.c
+          ${OBS_SOURCE_DIR}/deps/libff/libff/ff-util.h
           ${CMAKE_CURRENT_BINARY_DIR}/ui-config.h)
 
 target_sources(
@@ -288,7 +288,7 @@ target_sources(obs PRIVATE importers/importers.cpp importers/importers.hpp impor
 
 target_compile_features(obs PRIVATE cxx_std_17)
 
-target_include_directories(obs PRIVATE ${CMAKE_SOURCE_DIR}/deps/json11 ${CMAKE_SOURCE_DIR}/deps/libff)
+target_include_directories(obs PRIVATE ${OBS_SOURCE_DIR}/deps/json11 ${OBS_SOURCE_DIR}/deps/libff)
 
 target_link_libraries(obs PRIVATE CURL::libcurl FFmpeg::avcodec FFmpeg::avutil FFmpeg::avformat OBS::libobs
                                   OBS::frontend-api)
@@ -390,7 +390,7 @@ elseif(OS_MACOS)
     obs
     PROPERTIES OUTPUT_NAME ${OBS_BUNDLE_NAME}
                MACOSX_BUNDLE ON
-               MACOSX_BUNDLE_INFO_PLIST ${CMAKE_SOURCE_DIR}/cmake/bundle/macOS/Info.plist.in)
+               MACOSX_BUNDLE_INFO_PLIST ${OBS_SOURCE_DIR}/cmake/bundle/macOS/Info.plist.in)
 
   if(XCODE)
     set_target_properties(
@@ -399,12 +399,12 @@ elseif(OS_MACOS)
                  XCODE_ATTRIBUTE_ASSETCATALOG_COMPILER_APPICON_NAME AppIcon
                  XCODE_ATTRIBUTE_PRODUCT_NAME "OBS")
 
-    set(APP_ICON_TARGET ${CMAKE_SOURCE_DIR}/cmake/bundle/macOS/Assets.xcassets)
+    set(APP_ICON_TARGET ${OBS_SOURCE_DIR}/cmake/bundle/macOS/Assets.xcassets)
 
     target_sources(obs PRIVATE ${APP_ICON_TARGET})
     set_source_files_properties(${APP_ICON_TARGET} PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
   else()
-    set(APP_ICON_TARGET ${CMAKE_SOURCE_DIR}/cmake/bundle/macOS/AppIcon.iconset)
+    set(APP_ICON_TARGET ${OBS_SOURCE_DIR}/cmake/bundle/macOS/AppIcon.iconset)
     set(APP_ICON_OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/AppIcon.icns)
 
     add_custom_command(OUTPUT ${APP_ICON_OUTPUT} COMMAND iconutil -c icns "${APP_ICON_TARGET}" -o "${APP_ICON_OUTPUT}")

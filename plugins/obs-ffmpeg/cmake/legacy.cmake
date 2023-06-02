@@ -94,7 +94,7 @@ if(OS_WINDOWS)
   target_link_libraries(obs-ffmpeg PRIVATE AMF::AMF FFnvcodec::FFnvcodec)
 
   set(MODULE_DESCRIPTION "OBS FFmpeg module")
-  configure_file(${CMAKE_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in obs-ffmpeg.rc)
+  configure_file(${OBS_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in obs-ffmpeg.rc)
 
   target_sources(
     obs-ffmpeg

@@ -6,13 +6,13 @@ if(POLICY CMP0011)
 endif()
 
 # Prohibit in-source builds
-if("${CMAKE_BINARY_DIR}" STREQUAL "${CMAKE_SOURCE_DIR}")
+if("${CMAKE_BINARY_DIR}" STREQUAL "${OBS_SOURCE_DIR}")
   message(
     FATAL_ERROR
       "OBS: In-source builds of OBS are not supported. Specify a build directory via 'cmake -S <SOURCE DIRECTORY> -B <BUILD_DIRECTORY>' instead."
   )
 endif()
-file(REMOVE_RECURSE "${CMAKE_SOURCE_DIR}/CMakeCache.txt" "${CMAKE_SOURCE_DIR}/CMakeFiles")
+file(REMOVE_RECURSE "${OBS_SOURCE_DIR}/CMakeCache.txt" "${OBS_SOURCE_DIR}/CMakeFiles")
 
 # Use folders for source file organization with IDE generators (Visual Studio/Xcode)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)

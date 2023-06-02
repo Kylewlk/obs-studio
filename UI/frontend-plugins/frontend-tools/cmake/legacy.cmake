@@ -27,23 +27,23 @@ target_sources(
           output-timer.hpp
           tool-helpers.hpp
           output-timer.cpp
-          ${CMAKE_SOURCE_DIR}/UI/double-slider.cpp
-          ${CMAKE_SOURCE_DIR}/UI/double-slider.hpp
-          ${CMAKE_SOURCE_DIR}/UI/horizontal-scroll-area.cpp
-          ${CMAKE_SOURCE_DIR}/UI/horizontal-scroll-area.hpp
-          ${CMAKE_SOURCE_DIR}/UI/properties-view.cpp
-          ${CMAKE_SOURCE_DIR}/UI/properties-view.hpp
-          ${CMAKE_SOURCE_DIR}/UI/properties-view.moc.hpp
-          ${CMAKE_SOURCE_DIR}/UI/qt-wrappers.cpp
-          ${CMAKE_SOURCE_DIR}/UI/qt-wrappers.hpp
-          ${CMAKE_SOURCE_DIR}/UI/spinbox-ignorewheel.cpp
-          ${CMAKE_SOURCE_DIR}/UI/spinbox-ignorewheel.hpp
-          ${CMAKE_SOURCE_DIR}/UI/slider-ignorewheel.cpp
-          ${CMAKE_SOURCE_DIR}/UI/slider-ignorewheel.hpp
-          ${CMAKE_SOURCE_DIR}/UI/vertical-scroll-area.hpp
-          ${CMAKE_SOURCE_DIR}/UI/vertical-scroll-area.cpp
-          ${CMAKE_SOURCE_DIR}/UI/plain-text-edit.cpp
-          ${CMAKE_SOURCE_DIR}/UI/plain-text-edit.hpp)
+          ${OBS_SOURCE_DIR}/UI/double-slider.cpp
+          ${OBS_SOURCE_DIR}/UI/double-slider.hpp
+          ${OBS_SOURCE_DIR}/UI/horizontal-scroll-area.cpp
+          ${OBS_SOURCE_DIR}/UI/horizontal-scroll-area.hpp
+          ${OBS_SOURCE_DIR}/UI/properties-view.cpp
+          ${OBS_SOURCE_DIR}/UI/properties-view.hpp
+          ${OBS_SOURCE_DIR}/UI/properties-view.moc.hpp
+          ${OBS_SOURCE_DIR}/UI/qt-wrappers.cpp
+          ${OBS_SOURCE_DIR}/UI/qt-wrappers.hpp
+          ${OBS_SOURCE_DIR}/UI/spinbox-ignorewheel.cpp
+          ${OBS_SOURCE_DIR}/UI/spinbox-ignorewheel.hpp
+          ${OBS_SOURCE_DIR}/UI/slider-ignorewheel.cpp
+          ${OBS_SOURCE_DIR}/UI/slider-ignorewheel.hpp
+          ${OBS_SOURCE_DIR}/UI/vertical-scroll-area.hpp
+          ${OBS_SOURCE_DIR}/UI/vertical-scroll-area.cpp
+          ${OBS_SOURCE_DIR}/UI/plain-text-edit.cpp
+          ${OBS_SOURCE_DIR}/UI/plain-text-edit.hpp)
 
 target_compile_features(frontend-tools PRIVATE cxx_std_17)
 
@@ -73,7 +73,7 @@ set_target_properties(frontend-tools PROPERTIES FOLDER "frontend" PREFIX "")
 
 if(OS_WINDOWS)
   set(MODULE_DESCRIPTION "OBS Frontend Tools")
-  configure_file(${CMAKE_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in frontend-tools.rc)
+  configure_file(${OBS_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in frontend-tools.rc)
 
   target_sources(
     frontend-tools

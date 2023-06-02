@@ -56,6 +56,6 @@ set_target_properties(
              # built for this architecture at the moment.
              OSX_ARCHITECTURES "x86_64;arm64;arm64e"
              LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/../../"
-             MACOSX_BUNDLE_INFO_PLIST "${CMAKE_SOURCE_DIR}/cmake/bundle/macOS/Virtualcam-Info.plist.in")
+             MACOSX_BUNDLE_INFO_PLIST "${OBS_SOURCE_DIR}/cmake/bundle/macOS/Virtualcam-Info.plist.in")
 
 setup_binary_target(mac-dal-plugin)

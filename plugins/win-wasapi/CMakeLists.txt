@@ -7,7 +7,7 @@ target_sources(win-wasapi PRIVATE win-wasapi.cpp enum-wasapi.cpp enum-wasapi.hpp
 
 set(MODULE_DESCRIPTION "OBS WASAPI module")
 
-configure_file(${CMAKE_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in win-wasapi.rc)
+configure_file(${OBS_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in win-wasapi.rc)
 
 target_sources(win-wasapi PRIVATE win-wasapi.rc)
 

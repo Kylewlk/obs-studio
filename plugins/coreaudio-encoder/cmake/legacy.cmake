@@ -40,7 +40,7 @@ elseif(OS_WINDOWS)
   target_compile_definitions(coreaudio-encoder PRIVATE UNICODE _UNICODE)
 
   set(MODULE_DESCRIPTION "OBS CoreAudio encoder")
-  configure_file(${CMAKE_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in coreaudio-encoder.rc)
+  configure_file(${OBS_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in coreaudio-encoder.rc)
 
   target_sources(coreaudio-encoder PRIVATE coreaudio-encoder.rc windows-imports.h)
 endif()

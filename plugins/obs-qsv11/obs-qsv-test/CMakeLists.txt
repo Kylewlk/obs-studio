@@ -1,6 +1,6 @@
 project(obs-qsv-test)
 
-include_directories(SYSTEM ${CMAKE_SOURCE_DIR}/libobs)
+include_directories(SYSTEM ${OBS_SOURCE_DIR}/libobs)
 
 add_executable(obs-qsv-test)
 target_sources(obs-qsv-test PRIVATE obs-qsv-test.cpp)

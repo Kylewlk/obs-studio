@@ -15,23 +15,23 @@ target_sources(
           output-timer.hpp
           tool-helpers.hpp
           output-timer.cpp
-          "${CMAKE_SOURCE_DIR}/UI/double-slider.cpp"
-          "${CMAKE_SOURCE_DIR}/UI/double-slider.hpp"
-          "${CMAKE_SOURCE_DIR}/UI/horizontal-scroll-area.cpp"
-          "${CMAKE_SOURCE_DIR}/UI/horizontal-scroll-area.hpp"
-          "${CMAKE_SOURCE_DIR}/UI/properties-view.cpp"
-          "${CMAKE_SOURCE_DIR}/UI/properties-view.hpp"
-          "${CMAKE_SOURCE_DIR}/UI/properties-view.moc.hpp"
-          "${CMAKE_SOURCE_DIR}/UI/qt-wrappers.cpp"
-          "${CMAKE_SOURCE_DIR}/UI/qt-wrappers.hpp"
-          "${CMAKE_SOURCE_DIR}/UI/spinbox-ignorewheel.cpp"
-          "${CMAKE_SOURCE_DIR}/UI/spinbox-ignorewheel.hpp"
-          "${CMAKE_SOURCE_DIR}/UI/slider-ignorewheel.cpp"
-          "${CMAKE_SOURCE_DIR}/UI/slider-ignorewheel.hpp"
-          "${CMAKE_SOURCE_DIR}/UI/vertical-scroll-area.hpp"
-          "${CMAKE_SOURCE_DIR}/UI/vertical-scroll-area.cpp"
-          "${CMAKE_SOURCE_DIR}/UI/plain-text-edit.cpp"
-          "${CMAKE_SOURCE_DIR}/UI/plain-text-edit.hpp")
+          "${OBS_SOURCE_DIR}/UI/double-slider.cpp"
+          "${OBS_SOURCE_DIR}/UI/double-slider.hpp"
+          "${OBS_SOURCE_DIR}/UI/horizontal-scroll-area.cpp"
+          "${OBS_SOURCE_DIR}/UI/horizontal-scroll-area.hpp"
+          "${OBS_SOURCE_DIR}/UI/properties-view.cpp"
+          "${OBS_SOURCE_DIR}/UI/properties-view.hpp"
+          "${OBS_SOURCE_DIR}/UI/properties-view.moc.hpp"
+          "${OBS_SOURCE_DIR}/UI/qt-wrappers.cpp"
+          "${OBS_SOURCE_DIR}/UI/qt-wrappers.hpp"
+          "${OBS_SOURCE_DIR}/UI/spinbox-ignorewheel.cpp"
+          "${OBS_SOURCE_DIR}/UI/spinbox-ignorewheel.hpp"
+          "${OBS_SOURCE_DIR}/UI/slider-ignorewheel.cpp"
+          "${OBS_SOURCE_DIR}/UI/slider-ignorewheel.hpp"
+          "${OBS_SOURCE_DIR}/UI/vertical-scroll-area.hpp"
+          "${OBS_SOURCE_DIR}/UI/vertical-scroll-area.cpp"
+          "${OBS_SOURCE_DIR}/UI/plain-text-edit.cpp"
+          "${OBS_SOURCE_DIR}/UI/plain-text-edit.hpp")
 
 target_sources(frontend-tools PRIVATE forms/auto-scene-switcher.ui forms/captions.ui forms/output-timer.ui
                                       forms/scripts.ui)
@@ -39,7 +39,7 @@ target_sources(frontend-tools PRIVATE forms/auto-scene-switcher.ui forms/caption
 target_link_libraries(frontend-tools PRIVATE OBS::frontend-api OBS::libobs Qt::Widgets
                                              $<$<PLATFORM_ID:Linux,FreeBSD>:Qt::GuiPrivate>)
 
-add_subdirectory("${CMAKE_SOURCE_DIR}/deps/obs-scripting" "${CMAKE_BINARY_DIR}/deps/obs-scripting")
+add_subdirectory("${OBS_SOURCE_DIR}/deps/obs-scripting" "${CMAKE_BINARY_DIR}/deps/obs-scripting")
 
 if(ENABLE_SCRIPTING AND TARGET OBS::scripting)
   target_sources(frontend-tools PRIVATE scripts.cpp scripts.hpp)

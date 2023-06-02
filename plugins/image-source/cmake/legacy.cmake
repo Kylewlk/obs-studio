@@ -13,7 +13,7 @@ if(OS_WINDOWS)
   endif()
 
   set(MODULE_DESCRIPTION "OBS image module")
-  configure_file(${CMAKE_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in image-source.rc)
+  configure_file(${OBS_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in image-source.rc)
 
   target_sources(image-source PRIVATE image-source.rc)
 endif()

@@ -180,7 +180,7 @@ if(OS_WINDOWS)
   endif()
 
   set(MODULE_DESCRIPTION "OBS A/V Filters")
-  configure_file(${CMAKE_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in obs-filters.rc)
+  configure_file(${OBS_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in obs-filters.rc)
 
   target_sources(obs-filters PRIVATE obs-filters.rc)
 endif()

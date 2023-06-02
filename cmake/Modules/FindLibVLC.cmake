@@ -17,14 +17,14 @@ endif()
 find_path(
   VLC_INCLUDE_DIR
   NAMES libvlc.h
-  HINTS ENV VLC_PATH ${VLC_PATH} ${CMAKE_SOURCE_DIR}/${VLC_PATH} ${_VLC_INCLUDE_DIRS}
+  HINTS ENV VLC_PATH ${VLC_PATH} ${OBS_SOURCE_DIR}/${VLC_PATH} ${_VLC_INCLUDE_DIRS}
   PATHS /usr/include /usr/local/include /opt/local/include /sw/include
   PATH_SUFFIXES vlc include/vlc include)
 
 find_library(
   VLC_LIB
   NAMES ${_VLC_LIBRARIES} VLC libVLC
-  HINTS ENV VLC_PATH ${VLC_PATH} ${CMAKE_SOURCE_DIR}/${VLC_PATH} ${_VLC_LIBRARY_DIRS}
+  HINTS ENV VLC_PATH ${VLC_PATH} ${OBS_SOURCE_DIR}/${VLC_PATH} ${_VLC_LIBRARY_DIRS}
   PATHS /usr/lib /usr/local/lib /opt/local/lib /sw/lib
   PATH_SUFFIXES
     lib${_lib_suffix}

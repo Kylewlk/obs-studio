@@ -24,10 +24,10 @@ target_sources(
           updater.manifest
           helpers.cpp
           helpers.hpp
-          ${CMAKE_SOURCE_DIR}/deps/json11/json11.hpp
-          ${CMAKE_SOURCE_DIR}/deps/json11/json11.cpp)
+          ${OBS_SOURCE_DIR}/deps/json11/json11.hpp
+          ${OBS_SOURCE_DIR}/deps/json11/json11.cpp)
 
-target_include_directories(updater PRIVATE ${CMAKE_SOURCE_DIR}/libobs ${CMAKE_SOURCE_DIR}/deps/json11)
+target_include_directories(updater PRIVATE ${OBS_SOURCE_DIR}/libobs ${OBS_SOURCE_DIR}/deps/json11)
 
 target_compile_definitions(updater PRIVATE NOMINMAX "PSAPI_VERSION=2")
 

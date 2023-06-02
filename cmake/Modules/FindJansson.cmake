@@ -16,13 +16,13 @@ endif()
 find_path(
   Jansson_INCLUDE_DIR
   NAMES jansson.h
-  HINTS ENV JANSSON_PATH ${JANSSON_PATH} ${CMAKE_SOURCE_DIR}/${JANSSON_PATH} ${_JANSSON_INCLUDE_DIRS}
+  HINTS ENV JANSSON_PATH ${JANSSON_PATH} ${OBS_SOURCE_DIR}/${JANSSON_PATH} ${_JANSSON_INCLUDE_DIRS}
   PATHS /usr/include /usr/local/include /opt/local/include /sw/include)
 
 find_library(
   Jansson_LIB
   NAMES ${_JANSSON_LIBRARIES} jansson libjansson
-  HINTS ENV JANSSON_PATH ${JANSSON_PATH} ${CMAKE_SOURCE_DIR}/${JANSSON_PATH} ${_JANSSON_LIBRARY_DIRS}
+  HINTS ENV JANSSON_PATH ${JANSSON_PATH} ${OBS_SOURCE_DIR}/${JANSSON_PATH} ${_JANSSON_LIBRARY_DIRS}
   PATHS /usr/lib /usr/local/lib /opt/local/lib /sw/lib
   PATH_SUFFIXES
     lib${_lib_suffix}

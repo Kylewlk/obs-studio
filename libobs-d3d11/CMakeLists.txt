@@ -21,7 +21,7 @@ target_sources(
           d3d11-zstencilbuffer.cpp)
 
 set(MODULE_DESCRIPTION "OBS Library D3D11 wrapper")
-configure_file(${CMAKE_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in libobs-d3d11.rc)
+configure_file(${OBS_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in libobs-d3d11.rc)
 
 target_include_directories(libobs-d3d11 PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 

@@ -13,11 +13,11 @@ set(_OBS_BETA "0" "0" "0" "0")
 if(NOT DEFINED OBS_VERSION_OVERRIDE)
   if(NOT DEFINED RELEASE_CANDIDATE
      AND NOT DEFINED BETA
-     AND EXISTS "${CMAKE_SOURCE_DIR}/.git")
+     AND EXISTS "${OBS_SOURCE_DIR}/.git")
     execute_process(
       COMMAND git describe --always --tags --dirty=-modified
       OUTPUT_VARIABLE _OBS_VERSION
-      WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
+      WORKING_DIRECTORY "${OBS_SOURCE_DIR}"
       RESULT_VARIABLE _OBS_VERSION_RESULT
       OUTPUT_STRIP_TRAILING_WHITESPACE)
 
@@ -96,7 +96,7 @@ endif()
 
 # Define build number cache file
 set(BUILD_NUMBER_CACHE
-    ${CMAKE_SOURCE_DIR}/cmake/.CMakeBuildNumber
+    ${OBS_SOURCE_DIR}/cmake/.CMakeBuildNumber
     CACHE INTERNAL "OBS build number cache file")
 
 # Read build number from cache file or manual override

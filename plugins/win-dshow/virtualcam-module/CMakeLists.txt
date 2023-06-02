@@ -28,7 +28,7 @@ target_include_directories(obs-virtualcam-module PRIVATE ${CMAKE_CURRENT_SOURCE_
 
 set(MODULE_DESCRIPTION "OBS Virtual Camera output module")
 
-configure_file(${CMAKE_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in virtualcam-module.rc)
+configure_file(${OBS_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in virtualcam-module.rc)
 
 target_sources(obs-virtualcam-module PRIVATE virtualcam-module.rc)
 

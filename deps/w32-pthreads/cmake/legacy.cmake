@@ -10,7 +10,7 @@ add_library(OBS::w32-pthreads ALIAS w32-pthreads)
 target_sources(w32-pthreads PRIVATE implement.h pthread.c pthread.h sched.h semaphore.h w32-pthreads.rc)
 
 set(MODULE_DESCRIPTION "POSIX Threads for Windows")
-configure_file(${CMAKE_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in w32-pthreads.rc)
+configure_file(${OBS_SOURCE_DIR}/cmake/bundle/windows/obs-module.rc.in w32-pthreads.rc)
 
 target_compile_definitions(w32-pthreads PRIVATE __CLEANUP_C PTW32_BUILD)
 
