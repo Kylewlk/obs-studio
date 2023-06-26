@@ -49,6 +49,7 @@ struct ffmpeg_source {
 	bool is_hw_decoding;
 	bool full_decode;
 	bool is_clear_on_media_end;
+	bool is_hold_last_frame;
 	bool restart_on_activate;
 	bool close_when_inactive;
 	bool seekable;
@@ -123,6 +124,7 @@ static void ffmpeg_source_defaults(obs_data_t *settings)
 	obs_data_set_default_bool(settings, "is_local_file", true);
 	obs_data_set_default_bool(settings, "looping", false);
 	obs_data_set_default_bool(settings, "clear_on_media_end", true);
+	obs_data_set_default_bool(settings, "hold_last_frame", false);
 	obs_data_set_default_bool(settings, "restart_on_activate", true);
 	obs_data_set_default_bool(settings, "linear_alpha", false);
 	obs_data_set_default_int(settings, "reconnect_delay_sec", 10);
@@ -207,6 +209,9 @@ static obs_properties_t *ffmpeg_source_getproperties(void *data)
 	obs_properties_add_bool(props, "clear_on_media_end",
 				obs_module_text("ClearOnMediaEnd"));
 
+	obs_properties_add_bool(props, "hold_last_frame",
+				obs_module_text("HoldLastFrame"));
+
 	prop = obs_properties_add_bool(
 		props, "close_when_inactive",
 		obs_module_text("CloseFileWhenInactive"));
@@ -258,6 +263,7 @@ static void dump_source_info(struct ffmpeg_source *s, const char *input,
 		"\tis_linear_alpha:         %s\n"
 		"\tis_hw_decoding:          %s\n"
 		"\tis_clear_on_media_end:   %s\n"
+		"\tis_hold_last_frame:      %s\n"
 		"\trestart_on_activate:     %s\n"
 		"\tclose_when_inactive:     %s\n"
 		"\tfull_decode:             %s\n"
@@ -267,6 +273,7 @@ static void dump_source_info(struct ffmpeg_source *s, const char *input,
 		s->is_looping ? "yes" : "no", s->is_linear_alpha ? "yes" : "no",
 		s->is_hw_decoding ? "yes" : "no",
 		s->is_clear_on_media_end ? "yes" : "no",
+		s->is_hold_last_frame ? "yes" : "no",
 		s->restart_on_activate ? "yes" : "no",
 		s->close_when_inactive ? "yes" : "no",
 		s->full_decode ? "yes" : "no", s->ffmpeg_options);
@@ -357,11 +364,13 @@ static void ffmpeg_source_start(struct ffmpeg_source *s)
 		return;
 
 	media_playback_play(s->media, s->is_looping, s->reconnecting);
+
 	if (s->is_local_file && media_playback_has_video(s->media) &&
 	    (s->is_clear_on_media_end || s->is_looping))
 		obs_source_show_preloaded_video(s->source);
-	else
+	else if (!s->is_hold_last_frame)
 		obs_source_output_video(s->source, NULL);
+
 	set_media_state(s, OBS_MEDIA_STATE_PLAYING);
 	obs_source_media_started(s->source);
 }
@@ -478,6 +487,8 @@ static void ffmpeg_source_update(void *data, obs_data_t *settings)
 	s->full_decode = obs_data_get_bool(settings, "full_decode");
 	s->is_clear_on_media_end =
 		obs_data_get_bool(settings, "clear_on_media_end");
+	s->is_hold_last_frame =
+		obs_data_get_bool(settings, "hold_last_frame");
 	s->restart_on_activate =
 		!astrcmpi_n(input, RIST_PROTO, sizeof(RIST_PROTO) - 1)
 			? false

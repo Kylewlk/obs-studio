@@ -28,6 +28,7 @@ CMakeUserPresets.json
 #clion
 .idea/
 cmake-build-debug/
+cmake-build*
 
 #other stuff (windows stuff, qt moc stuff, etc)
 Release_MD/
