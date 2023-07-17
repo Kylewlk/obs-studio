@@ -2225,12 +2225,12 @@ static void create_log_file(fstream &logFile)
 	logFile.open(path, ios_base::in | ios_base::out | ios_base::trunc);
 #endif
 
-	if (logFile.is_open()) {
-		delete_oldest_file(false, "obs-studio/logs");
-		base_set_log_handler(do_log, &logFile);
-	} else {
-		blog(LOG_ERROR, "Failed to open log file");
-	}
+//	if (logFile.is_open()) {
+//		delete_oldest_file(false, "obs-studio/logs");
+//		base_set_log_handler(do_log, &logFile);
+//	} else {
+//		blog(LOG_ERROR, "Failed to open log file");
+//	}
 }
 
 static auto ProfilerNameStoreRelease = [](profiler_name_store_t *store) {
